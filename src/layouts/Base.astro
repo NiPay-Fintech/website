@@ -20,6 +20,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="NiPay" />
+    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NiPay: credit that pays itself back from a shop's daily sales" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <a class="skip sr-only" href="#main">Skip to content</a>

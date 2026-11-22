@@ -38,9 +38,14 @@ npm run preview   # serve the built site
 
 - [ ] Real domain in `astro.config.mjs` (`site`) and email in `src/site.ts`
 - [ ] Founder photo (`public/`) and bio in `src/components/Status.astro`
-- [ ] Social share image (1200 × 630)
+- [x] Social share image (`public/og.png`, 1200 × 630)
 - [ ] Kinyarwanda version, checked by a native speaker
 
 ## Deploy
 
-Hosted on Vercel. Every push to `main` deploys automatically; pull requests get a preview link.
+Hosted on Vercel (project `nipay-website`). Every push to `main` deploys automatically; pull requests get a preview link.
+Until a custom domain is connected, the `*.vercel.app` links are protected by Vercel login.
+
+## Checks
+
+GitHub Actions (`.github/workflows/ci.yml`) builds the site on every pull request and push to `main`. Do not merge a red build.
