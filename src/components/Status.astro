@@ -1,0 +1,72 @@
+---
+import { site } from '../site';
+const milestones = [
+  { when: '2025', t: 'Company registered', b: 'NIPAY Ltd registered with RDB in Kigali.', done: true },
+  { when: '2026', t: 'Research and design', b: 'Conversations with traders, the product design and the credit model.', done: true },
+  { when: 'Next', t: 'Partner bank and sandbox', b: 'A partner bank and entry to the BNR regulatory sandbox.', done: false },
+  { when: 'Then', t: 'First pilot', b: 'About 100 shops in one Kigali market, to prove repayment.', done: false },
+];
+---
+<section id="about" class="section bg-paper on-light">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Where we are</p>
+      <h2 class="h2">Early, and building it properly.</h2>
+      <span class="bar"></span>
+    </div>
+    <ol class="timeline">
+      {milestones.map((m) => (
+        <li class:list={['m', { done: m.done }]}>
+          <div class="rail"><span class="dot"></span><span class="line"></span></div>
+          <div class="txt">
+            <span class="when">{m.when}{m.done && <span class="sr-only"> (done)</span>}</span>
+            <h3>{m.t}</h3>
+            <p>{m.b}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <div class="founder">
+      <!-- TODO: replace with a real photo (public/elvis.jpg) -->
+      <div class="photo" role="img" aria-label="Photo of Kayonga Elvis to come">[PHOTO]</div>
+      <div class="bio">
+        <h3>Kayonga Elvis</h3>
+        <span class="role">Founder and Managing Director</span>
+        <p>[ONE OR TWO LINES ABOUT YOU: your background in procurement and why you started NiPay.]</p>
+        <a href={site.linkedin} rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .timeline { display: flex; flex-direction: column; }
+  .m { display: flex; gap: 16px; }
+  .rail { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .dot { width: 24px; height: 24px; border-radius: 12px; border: 2px solid var(--forest); background: #fff; }
+  .done .dot { background: var(--lime); border-color: var(--lime); }
+  .line { flex: 1 1 auto; width: 2px; background: rgba(11,42,28,.2); }
+  .m:last-child .line { display: none; }
+  .txt { display: flex; flex-direction: column; gap: 4px; padding-bottom: 24px; }
+  .when { font-size: 13px; font-weight: 700; color: var(--moss); }
+  .done .when { color: var(--leaf); }
+  h3 { font-size: 18px; font-weight: 700; }
+  .txt p { font-size: 15px; color: var(--moss); }
+  .founder { margin-top: 16px; padding: 22px; border-radius: var(--radius); background: #fff; display: flex; flex-direction: column; gap: 14px; }
+  .photo { width: 88px; height: 88px; border-radius: 44px; background: var(--line); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--moss); }
+  .bio { display: flex; flex-direction: column; gap: 4px; }
+  .bio h3 { font-size: 21px; }
+  .role { font-size: 14px; font-weight: 600; color: var(--leaf); }
+  .bio p { margin-top: 6px; color: var(--moss); max-width: 640px; }
+  .bio a { margin-top: 6px; font-weight: 600; }
+  @media (min-width: 900px) {
+    .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+    .m { flex-direction: column; gap: 10px; }
+    .rail { flex-direction: row; gap: 10px; }
+    .dot { width: 28px; height: 28px; border-radius: 14px; flex: 0 0 auto; }
+    .line { display: block; height: 2px; width: auto; background: var(--forest); }
+    .m:last-child .line { display: block; background: var(--line); }
+    .txt { padding: 0; }
+    .founder { margin-top: 48px; padding: 28px; flex-direction: row; align-items: center; gap: 28px; }
+    .photo { width: 112px; height: 112px; border-radius: 56px; flex: 0 0 auto; }
+  }
+</style>

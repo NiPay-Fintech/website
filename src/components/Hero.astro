@@ -1,0 +1,41 @@
+---
+import Mark from './Mark.astro';
+import PhoneMock from './PhoneMock.astro';
+---
+<section id="top" class="hero bg-forest">
+  <div class="sweep" aria-hidden="true"><Mark size={680} color="var(--lime)" /></div>
+  <div class="wrap grid">
+    <div class="copy">
+      <p class="eyebrow">Restock credit for Rwanda's shops</p>
+      <h1>Credit that pays itself back from a shop's daily sales.</h1>
+      <p class="lead">NiPay gives household shops a pay code their customers can pay from MTN, Airtel or any bank, and a small restock overdraft that is repaid automatically, a little from each sale. No application. No lump sums.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-lime btn-block-sm">Partner with us</a>
+        <a href="#how" class="btn btn-ghost btn-block-sm">See how it works</a>
+      </div>
+      <p class="status">NIPAY Ltd is a registered Rwandan company, in development. We are working towards a pilot with a partner bank through the BNR regulatory sandbox.</p>
+    </div>
+    <div class="visual">
+      <PhoneMock />
+      <span class="note">Illustrative screen</span>
+    </div>
+  </div>
+</section>
+<style>
+  .hero { position: relative; overflow: hidden; padding: 40px 0 48px; }
+  .sweep { position: absolute; right: -150px; bottom: 70px; width: 420px; pointer-events: none; }
+  .sweep :global(svg) { width: 100%; height: auto; }
+  .grid { position: relative; display: grid; gap: 40px; }
+  .copy { display: flex; flex-direction: column; gap: 18px; }
+  h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; max-width: 640px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+  .status { margin-top: 6px; font-size: 13px; color: var(--on-forest-2); max-width: 560px; padding: 14px 16px; border-radius: 14px; background: var(--forest-2); }
+  .visual { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .note { position: relative; font-size: 12px; color: var(--on-forest); background: var(--forest-2); padding: 4px 12px; border-radius: 999px; }
+  @media (min-width: 900px) {
+    .hero { padding: 100px 0 120px; }
+    .grid { grid-template-columns: minmax(0, 1fr) 320px; align-items: center; gap: 56px; }
+    .status { background: none; padding: 0; font-size: 14px; }
+    .sweep { width: 760px; right: -200px; top: 40px; bottom: auto; }
+  }
+</style>

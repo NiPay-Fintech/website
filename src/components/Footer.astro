@@ -1,0 +1,26 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../site';
+const year = new Date().getFullYear();
+---
+<footer class="bg-forest">
+  <div class="wrap row">
+    <Logo size={24} />
+    <nav aria-label="Footer">
+      <a href="#how">How it works</a><a href="#banks">For banks</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <p>© {year} {site.legalName} · {site.location}. NiPay is a technology company, not a bank or a licensed lender.</p>
+  </div>
+</footer>
+<style>
+  footer { padding: 36px 0 44px; }
+  .row { display: flex; flex-direction: column; gap: 18px; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  nav a { color: #fff; font-size: 14px; text-decoration: none; }
+  nav a:hover { color: var(--lime); }
+  p { font-size: 13px; line-height: 1.6; color: var(--on-forest-2); }
+  @media (min-width: 900px) {
+    .row { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    p { flex-basis: 100%; }
+  }
+</style>

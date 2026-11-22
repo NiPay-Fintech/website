@@ -1,0 +1,35 @@
+---
+const items = [
+  { t: 'Limits that clear', b: "Each shop's limit is sized from its own sales, so credit can be repaid in about three months." },
+  { t: 'No hidden fees', b: 'Simple, clear pricing shown up front. No late fees and no rollover fees.' },
+  { t: 'Down, never out', b: 'If a shop struggles, we talk first and offer a plan. We grade down and help shops climb back.' },
+  { t: 'Sales data, not snooping', b: 'We score shops on their payments. We never read contacts, messages or location.' },
+];
+---
+<section class="section bg-forest">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Our promise</p>
+      <h2 class="h2">Fair credit is the product, not the fine print.</h2>
+      <span class="bar"></span>
+    </div>
+    <ul class="list">
+      {items.map((i) => <li><span class="dot"></span><div><h3>{i.t}</h3><p>{i.b}</p></div></li>)}
+    </ul>
+  </div>
+</section>
+<style>
+  .list { display: grid; gap: 24px; }
+  li { display: flex; gap: 14px; }
+  .dot { flex: 0 0 auto; margin-top: 4px; width: 20px; height: 20px; border-radius: 10px; background: var(--lime); }
+  h3 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+  p { color: #C9D6CF; font-size: 16px; }
+  @media (min-width: 768px) {
+    .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+  }
+  @media (min-width: 1100px) {
+    .list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    li { flex-direction: column; }
+    .dot { width: 28px; height: 28px; border-radius: 14px; margin: 0 0 6px; }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+const points = [
+  { t: 'The shop carries the home', b: 'School fees, rent, food and healthcare come out of the till. Every week a little less goes back into stock.' },
+  { t: 'Stock shrinks each cycle', b: 'With less stock there are fewer sales, and the next restock is smaller again. The business slowly suffocates.' },
+  { t: 'Loans make it harder', b: 'Lump-sum repayments land on the worst day of the month. Many owners default, and lose access to credit for good.' },
+];
+const stats = [
+  { n: '278,060', l: 'non-farm businesses in Rwanda, most of them in trade' },
+  { n: '86.8%', l: 'of them informal, outside most lending' },
+  { n: '$1.2–1.8bn', l: "estimated finance gap for Rwanda's small businesses" },
+];
+---
+<section class="section bg-white on-light">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">Household shops don't fail in a day. They run short, one restock at a time.</h2>
+      <span class="bar"></span>
+    </div>
+    <div class="cards">
+      {points.map((p) => <div class="card"><h3>{p.t}</h3><p>{p.b}</p></div>)}
+    </div>
+    <dl class="stats">
+      {stats.map((s) => <div class="stat"><dt class="num">{s.n}</dt><dd>{s.l}</dd></div>)}
+    </dl>
+    <p class="src">Sources: NISR Integrated Business Enterprise Survey 2024; IFC.</p>
+  </div>
+</section>
+<style>
+  .cards { display: grid; gap: 12px; }
+  .card { padding: 22px; border-radius: var(--radius); background: var(--paper); display: flex; flex-direction: column; gap: 8px; }
+  h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .card p { color: var(--moss); font-size: 16px; }
+  .stats { margin: 32px 0 0; display: grid; }
+  .stat { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  dt { flex: 0 0 150px; white-space: nowrap; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--leaf); }
+  dd { margin: 0; font-size: 14px; color: var(--moss); }
+  .src { margin-top: 16px; font-size: 12px; color: var(--moss); }
+  @media (min-width: 768px) {
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .card { padding: 28px; }
+    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 48px; }
+    .stat { flex-direction: column; gap: 6px; padding-top: 18px; border-top-width: 2px; }
+    dt { flex: none; font-size: clamp(32px, 4vw, 44px); letter-spacing: -0.03em; }
+    dd { font-size: 15px; }
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import { site } from '../site';
+interface Props { title?: string; description?: string }
+const { title = 'NiPay | Restock credit that pays itself back', description = site.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0B2A1C" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <a class="skip sr-only" href="#main">Skip to content</a>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  .skip:focus { position: fixed; top: 12px; left: 12px; width: auto; height: auto; clip: auto; margin: 0; padding: 10px 16px; background: var(--lime); color: var(--forest); border-radius: 999px; z-index: 100; font-weight: 700; }
+</style>

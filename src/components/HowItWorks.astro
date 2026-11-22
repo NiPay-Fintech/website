@@ -1,0 +1,58 @@
+---
+const steps = [
+  { icon: 'code', t: 'Get paid with a NiPay code', b: "Customers pay the shop's code from MTN MoMo, Airtel Money or any bank, through Rwanda's national eKash switch." },
+  { icon: 'box', t: 'Restock when cash runs short', b: "When the owner pays a supplier and the balance is short, NiPay covers the gap instantly, within the shop's limit. No forms." },
+  { icon: 'loop', t: 'Repaid from sales, a little at a time', b: 'A small share of every digital sale clears the credit automatically. Good weeks repay faster, slow weeks repay less.' },
+];
+const paths: Record<string, string> = {
+  code: '<rect x="5" y="5" width="7" height="7" rx="1.5"/><rect x="16" y="5" width="7" height="7" rx="1.5"/><rect x="5" y="16" width="7" height="7" rx="1.5"/><path d="M16 16h3v3M23 16v7h-7"/>',
+  box: '<path d="M4 9l10-5 10 5-10 5-10-5z"/><path d="M4 9v10l10 5 10-5V9"/><path d="M14 14v10"/>',
+  loop: '<path d="M22 11a8 8 0 0 0-15-2"/><path d="M6 4v5h5"/><path d="M6 17a8 8 0 0 0 15 2"/><path d="M22 24v-5h-5"/>',
+};
+---
+<section id="how" class="section bg-paper on-light">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">Three steps. Nothing new to learn.</h2>
+      <span class="bar"></span>
+      <p class="lead">NiPay fits the way shops already trade. Customers pay a code, the owner restocks from suppliers, and repayment happens in the background.</p>
+    </div>
+    <ol class="steps">
+      {steps.map((s, i) => (
+        <li class="step">
+          <div class="rail">
+            <span class="icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={paths[s.icon]} /></span>
+            <span class="line"></span>
+          </div>
+          <div class="txt">
+            <span class="n num">Step {i + 1}</span>
+            <h3>{s.t}</h3>
+            <p>{s.b}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .steps { display: flex; flex-direction: column; }
+  .step { display: flex; gap: 16px; }
+  .rail { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .icon { display: inline-flex; width: 48px; height: 48px; border-radius: 14px; background: var(--lime); color: var(--forest); align-items: center; justify-content: center; }
+  .line { flex: 1 1 auto; width: 2px; margin-top: 6px; background: rgba(11,42,28,.15); }
+  .step:last-child .line { display: none; }
+  .txt { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; }
+  .step:last-child .txt { padding-bottom: 0; }
+  .n { font-size: 12px; font-weight: 700; color: var(--moss); text-transform: uppercase; letter-spacing: .06em; }
+  h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  p { color: var(--moss); font-size: 16px; }
+  @media (min-width: 768px) {
+    .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .step { flex-direction: column; gap: 14px; padding: 28px; border-radius: var(--radius); background: #fff; }
+    .rail { flex-direction: row; }
+    .line { display: none; }
+    .txt { padding: 0; }
+    h3 { font-size: 22px; }
+  }
+</style>

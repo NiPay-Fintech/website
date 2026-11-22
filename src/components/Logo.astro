@@ -1,0 +1,17 @@
+---
+import Mark from './Mark.astro';
+// Lockup: mark + "NiPay" in Inter Bold, Ni and Pay always two colours.
+interface Props { size?: number; on?: 'forest' | 'light' }
+const { size = 28, on = 'forest' } = Astro.props;
+const c = on === 'forest'
+  ? { mark: 'var(--lime)', ni: 'var(--lime)', pay: '#fff' }
+  : { mark: 'var(--forest)', ni: 'var(--leaf)', pay: 'var(--forest)' };
+---
+<span class="logo" style={`--s:${size}px`}>
+  <Mark size={size} color={c.mark} small={size < 32} />
+  <span class="word"><span style={`color:${c.ni}`}>Ni</span><span style={`color:${c.pay}`}>Pay</span></span>
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: calc(var(--s) * 0.34); }
+  .word { font-weight: 700; font-size: var(--s); letter-spacing: -0.035em; line-height: 1; }
+</style>

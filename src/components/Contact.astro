@@ -1,0 +1,27 @@
+---
+import { site } from '../site';
+---
+<section id="contact" class="section bg-lime on-lime">
+  <div class="wrap grid">
+    <div class="copy">
+      <p class="eyebrow">Talk to us</p>
+      <h2>Banks, funders and partners: let's build this together.</h2>
+      <p>We are looking for a partner bank, grant and programme support, and people who know Rwanda's markets.</p>
+    </div>
+    <div class="act">
+      <a href={`mailto:${site.email}`} class="btn btn-forest mail">{site.emailLabel}</a>
+      <span>Kigali, Rwanda</span>
+    </div>
+  </div>
+</section>
+<style>
+  .grid { display: grid; gap: 28px; }
+  .copy { display: flex; flex-direction: column; gap: 14px; }
+  h2 { font-size: clamp(30px, 4.5vw, 52px); line-height: 1.08; font-weight: 700; letter-spacing: -0.03em; max-width: 720px; }
+  .copy p:not(.eyebrow) { font-size: 18px; max-width: 600px; }
+  .act { display: flex; flex-direction: column; gap: 10px; align-items: stretch; text-align: center; font-size: 15px; }
+  .mail { min-height: 56px; font-size: 18px; }
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: minmax(0, 1fr) 360px; align-items: end; gap: 40px; }
+  }
+</style>

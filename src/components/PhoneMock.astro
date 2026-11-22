@@ -1,0 +1,51 @@
+---
+import Mark from './Mark.astro';
+// Illustrative app screen. Figures are an example, not real data.
+---
+<figure class="phone" aria-label="Illustrative NiPay app screen showing a shop's wallet and restock credit">
+  <div class="screen">
+    <div class="top">
+      <div class="row"><span class="shop">Aline's Shop · Kimironko</span><Mark size={18} color="var(--lime)" small /></div>
+      <span class="lbl">Wallet balance</span>
+      <span class="bal num">RWF 84,500</span>
+    </div>
+    <div class="body">
+      <div class="credit">
+        <span class="c-lbl">Restock credit available</span>
+        <span class="c-amt num">RWF 700,000</span>
+        <span class="c-sub">of RWF 1,000,000 · repaying from sales</span>
+        <span class="track"><span class="fill"></span></span>
+      </div>
+      <div class="tx">
+        <div class="tx-row"><span class="strong"><span class="dot"></span>Sale · code 48213</span><span class="in num">+ 12,000</span></div>
+        <div class="tx-row small"><span>10% to restock credit</span><span class="num">1,200</span></div>
+        <hr />
+        <div class="tx-row"><span class="strong">Paid a supplier</span><span class="strong num">− 300,000</span></div>
+      </div>
+    </div>
+  </div>
+</figure>
+<style>
+  .phone { margin: 0; width: 270px; max-width: 100%; border-radius: 38px; background: #fff; padding: 9px; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+  .screen { border-radius: 30px; overflow: hidden; background: var(--paper); color: var(--forest); }
+  .top { background: var(--forest); padding: 24px 20px 22px; display: flex; flex-direction: column; gap: 4px; }
+  .row { display: flex; justify-content: space-between; align-items: center; }
+  .shop, .lbl { font-size: 12px; color: #C9D6CF; }
+  .lbl { margin-top: 12px; }
+  .bal { font-size: 30px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .credit { background: var(--lime); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 3px; }
+  .c-lbl { font-size: 12px; font-weight: 600; }
+  .c-amt { font-size: 25px; font-weight: 700; letter-spacing: -0.02em; }
+  .c-sub { font-size: 11px; }
+  .track { margin-top: 8px; height: 7px; border-radius: 4px; background: rgba(11,42,28,.18); }
+  .fill { display: block; width: 70%; height: 100%; border-radius: 4px; background: var(--forest); }
+  .tx { background: #fff; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+  .tx-row { display: flex; justify-content: space-between; gap: 8px; }
+  .tx-row .num { white-space: nowrap; }
+  .small { font-size: 11px; color: var(--moss); }
+  .strong { font-weight: 600; }
+  .in { color: var(--leaf); font-weight: 700; }
+  .dot { display: inline-block; width: 6px; height: 6px; border-radius: 3px; background: var(--orange); margin-right: 6px; vertical-align: middle; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
+</style>

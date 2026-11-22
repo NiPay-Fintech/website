@@ -1,0 +1,50 @@
+---
+import Logo from './Logo.astro';
+const links = [
+  { href: '#how', label: 'How it works' },
+  { href: '#banks', label: 'For banks' },
+  { href: '#about', label: 'About' },
+];
+---
+<header class="header bg-forest">
+  <div class="wrap bar-row">
+    <a href="#top" aria-label="NiPay home" class="home"><Logo size={26} /></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h14" /><path class="l2" d="M4 15h14" /></svg>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href="#contact" class="btn btn-lime cta">Talk to us</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--forest-2); }
+  .bar-row { display: flex; align-items: center; justify-content: space-between; min-height: 64px; flex-wrap: wrap; }
+  .home { text-decoration: none; display: inline-flex; padding: 8px 0; }
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 12px; background: var(--forest-2); color: #fff; cursor: pointer; }
+  .nav { display: none; width: 100%; flex-direction: column; gap: 4px; padding: 8px 0 20px; }
+  .nav.open { display: flex; }
+  .nav a:not(.btn) { color: #fff; text-decoration: none; font-size: 17px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--forest-2); }
+  .nav a:not(.btn):hover { color: var(--lime); }
+  .cta { margin-top: 12px; }
+  @media (min-width: 860px) {
+    .menu-btn { display: none; }
+    .nav, .nav.open { display: flex; width: auto; flex-direction: row; align-items: center; gap: 28px; padding: 0; }
+    .nav a:not(.btn) { font-size: 16px; padding: 0; border: 0; }
+    .cta { margin-top: 0; min-height: 44px; padding: 0 20px; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  if (btn && nav) {
+    const set = (open: boolean) => { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => set(!nav.classList.contains('open')));
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); btn.focus(); } });
+  }
+</script>

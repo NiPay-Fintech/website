@@ -1,0 +1,46 @@
+---
+const points = [
+  { t: 'Live data, not paperwork', b: "Every limit is set from a shop's real daily sales and repeat customers." },
+  { t: 'Repayment built in', b: 'A share of each sale repays automatically, so there is little to chase.' },
+  { t: 'Deposits at your bank', b: 'Shop wallet balances are held at the partner bank.' },
+  { t: 'The full stack, run by us', b: 'Wallet, ledger, pay codes, eKash connection, scoring, USSD, SMS and support.' },
+];
+---
+<section id="banks" class="section bg-white on-light">
+  <div class="wrap grid">
+    <div class="head intro">
+      <p class="eyebrow">For banks</p>
+      <h2 class="h2">Small-shop lending that is finally affordable to serve.</h2>
+      <span class="bar"></span>
+      <p class="lead">You lend and set the credit rules. We run the technology that finds, scores and serves thousands of small shops, and collects repayment from their sales.</p>
+      <a href="#contact" class="btn btn-forest btn-block-sm desk">Book a conversation</a>
+    </div>
+    <ul class="points">
+      {points.map((p) => (
+        <li>
+          <span class="tick"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5l2.5 2.5L11 4" /></svg></span>
+          <span><strong>{p.t}</strong><span class="b">{p.b}</span></span>
+        </li>
+      ))}
+    </ul>
+    <a href="#contact" class="btn btn-forest btn-block-sm mob">Book a conversation</a>
+  </div>
+</section>
+<style>
+  .grid { display: grid; gap: 24px; }
+  .intro { margin-bottom: 0; }
+  .points { padding: 22px; border-radius: var(--radius); background: var(--paper); display: flex; flex-direction: column; gap: 20px; }
+  li { display: flex; gap: 12px; }
+  .tick { flex: 0 0 auto; margin-top: 2px; display: inline-flex; width: 22px; height: 22px; border-radius: 11px; background: var(--lime); color: var(--forest); align-items: center; justify-content: center; }
+  strong { display: block; font-size: 17px; }
+  .b { display: block; font-size: 15px; color: var(--moss); }
+  .desk { display: none; align-self: flex-start; margin-top: 8px; }
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; align-items: start; }
+    .points { padding: 32px; gap: 24px; }
+    strong { font-size: 18px; }
+    .b { font-size: 16px; }
+    .desk { display: inline-flex; }
+    .mob { display: none; }
+  }
+</style>
